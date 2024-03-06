@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from "@ngrx/store";
 
-import { CounterService } from '../counter.service';
+// import { IncrementAction } from "../store/counter.actions";
+import { decrement, increment } from "../store/counter.actions";
 
 @Component({
   selector: 'app-counter-controls',
@@ -9,13 +11,16 @@ import { CounterService } from '../counter.service';
   standalone: true,
 })
 export class CounterControlsComponent {
-  constructor(private counterService: CounterService) {}
+  constructor(private store: Store) {}
 
   increment() {
-    this.counterService.increment();
+    // this.store.dispatch(new IncrementAction(2))
+    this.store.dispatch(increment({value: 1}))
+    //pass the data with props of value
+    // actions are only executed when they are dispatched in the proper component
   }
 
   decrement() {
-    this.counterService.decrement();
+    this.store.dispatch(decrement({value: 1}))
   }
 }
