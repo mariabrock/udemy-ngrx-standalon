@@ -15,7 +15,7 @@ export class CounterControlsComponent {
 
   increment() {
     // this.store.dispatch(new IncrementAction(2))
-    this.store.dispatch(increment({value: 2}))
+    this.store.dispatch(increment({value: 1}))
     //pass the data with props of value
     // actions are only executed when they are dispatched in the proper component
   }
